@@ -3,8 +3,11 @@
  */
 package com.testng.selenium.v2;
 
+import java.io.File;
 import java.io.FileInputStream;
-import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.IOException;
+import java.util.Properties;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -22,31 +25,35 @@ public class v2 {
 
 	/**
 	 * @param args
-	 * @throws FileNotFoundException 
+	 * @throws IOException 
 	 */
 
 	
 	@Test
-	public static void main(String[] args) throws InterruptedException, FileNotFoundException { 
+	public static void main(String[] args) throws InterruptedException, IOException { 
 		// TODO Auto-generated method stub
 		
 		// Variables here
-		final ChromeOptions options;
-		final WebDriver driver;
-		final String url = "https://automationexercise.com/";
-		final Login login;
-		final PageFunctions function;
+		ChromeOptions options;
+		WebDriver driver;
+		Login login;
+		PageFunctions function;
 		String expectedTitleHomePage = "Automation Exercise";
 		String expectedTitleLogin = "Automation Exercise - Signup / Login";
+		String filepath = "D:\\eclipse-workplace\\v2\\src\\test\\java\\TestData.properties";
 		
-		// Initialize file reader
-		FileInputStream testData = new FileInputStream("D:\\automation\\data.txt");
+		// Testing properties file here
+		Properties props=new Properties();
+		FileReader reader=new FileReader(filepath);
+		props.load(reader);
+		
+		
 		
 		// Initialize ChromeOptions (script not running without this)
         options = new ChromeOptions();
         options.addArguments("--remote-allow-origins=*");
         
-        //Initialize PageFunctions here
+        // Initialize PageFunctions here
  		function = new PageFunctions();
      		
         // Set the path to ChromeDriver
@@ -59,11 +66,11 @@ public class v2 {
 		login = new Login(driver);
 		
 		// Navigate to the website
-		driver.get(url);
+		driver.get(props.getProperty("searchTerm"));
 		
 		// Validate landed site is correct
 		String actualTitleHomepage = driver.getTitle();
-		Assert.assertEquals(expectedTitleHomePage, actualTitleHomepage);
+		Assert.assertEquals(props.getProperty("expectedTitleHomepage"), actualTitleHomepage);
 		
 		// Maximize current window
 		driver.manage().window().maximize();
@@ -78,14 +85,16 @@ public class v2 {
 			
 		// Validate landed site is correct
 		String actualTitleLogin = driver.getTitle();
-		Assert.assertEquals(expectedTitleLogin, actualTitleLogin);
+		Assert.assertEquals(props.getProperty("expectedTitleLogin"), actualTitleLogin);
 		
 		// Login using existing email and password
-		login.setEmail(actualTitleLogin);
-		
+		login.setEmail(props.getProperty("email"));
+		login.setPassword(props.getProperty("password"));
+		login.clickLogin();
+		function.delayPage();
 		
 		// Close window
-		driver.close();
+		//driver.close();
 		
 		
 	}
