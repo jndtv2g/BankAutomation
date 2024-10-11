@@ -27,9 +27,14 @@ public class PageFunctions {
 	}
 	
 	
-	// Test method for delaying test steps
+	// Test method for delaying page loads
     public void delayPage() throws InterruptedException {
     	Thread.sleep(10000);
+    }
+    
+    // Test method for delaying test steps
+    public void delayStep() throws InterruptedException {
+    	Thread.sleep(5000);
     }
     
  
