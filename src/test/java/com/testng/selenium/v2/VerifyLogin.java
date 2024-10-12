@@ -45,7 +45,7 @@ public class VerifyLogin {
 		PageFunctions function;
 		String filepath = "D:\\eclipse-workplace\\v2\\src\\test\\java\\TestData.properties";
 		
-		// Testing properties file here
+		// Initialize properties file here for TestData.properties
 		Properties props=new Properties();
 		FileReader reader=new FileReader(filepath);
 		props.load(reader);
@@ -74,11 +74,7 @@ public class VerifyLogin {
 		login.navigateToSite();
 		function.delayPage();
 		
-		// Validate landed site is correct
-//		String actualTitleHomepage = driver.getTitle();
-//		Assert.assertEquals(props.getProperty("expectedTitleHomepage"), actualTitleHomepage);
-//		demologger.info("Actual page title is correct");
-		
+
 		// Maximize current window
 		driver.manage().window().maximize();
 		function.delayPage();
@@ -87,27 +83,17 @@ public class VerifyLogin {
 		login.clickOnLogin();
 
 		// Test message here when switching screen
-		//demologger.info("Click Successful");
 		function.delayPage();
 			
-		// Validate landed site is correct
-//		String actualTitleLogin = driver.getTitle();
-//		Assert.assertEquals(props.getProperty("expectedTitleLogin"), actualTitleLogin);
-//		login.getHomePageTitle();
-		
 		
 		// Login using existing email and password
 		login.setEmail(props.getProperty("email"));
 		function.delayStep();
 		login.setPassword(props.getProperty("password"));
 		function.delayStep();
-		login.clickLogin();
+		login.clickLoginButton();
 		function.delayPage();
-		
-//		demologger.info("This is an INFO log");
-//        demologger.debug("This is a DEBUG log");
-//        demologger.error("This is an ERROR log");
-//		
+
 		// Close window
 		driver.close();
 		

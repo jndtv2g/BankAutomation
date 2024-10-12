@@ -35,6 +35,9 @@ public class Login {
     Properties props1=new Properties();
     Logger demologger1;
     
+    
+    // Initialize properties file here for LoginAssertElements.properties
+    // Initialize logger here
     public Login(WebDriver driver) throws InterruptedException, IOException {
     	this.driver = driver;
     	demologger1 = LogManager.getLogger(Login.class);
@@ -43,25 +46,14 @@ public class Login {
     	props1.load(reader1);
     }
     
-//    public void initializeLogger()  {
-//    	
-//        FileReader reader1=new FileReader(filepath1);
-//        // Initialize logger here
-//		
-//    }
-//    
+
+    
     public void navigateToSite() {
     	driver.get(props1.getProperty("searchTerm"));
     	String actualTitleHomepage = driver.getTitle();
     	Assert.assertEquals(props1.getProperty("expectedTitleHomepage"), actualTitleHomepage);
     	demologger1.info("Actual page title is correct");
     }
-    
-//    public void getHomePageTitle() {
-//    	String actualTitleHomepage = driver.getTitle();
-//    	Assert.assertEquals(props1.getProperty("expectedTitleHomepage"), actualTitleHomepage);
-//    	demologger1.info("Actual page title is correct");
-//    }
    
     // Navigate to login screen
     public void clickOnLogin() {
@@ -85,7 +77,7 @@ public class Login {
     }
     
     // Click on Login button once fields are populated
-    public void clickLogin() {
+    public void clickLoginButton() {
     	driver.findElement(loginBtn).click();
     	demologger1.info("Login button clicked successfully");
     }
