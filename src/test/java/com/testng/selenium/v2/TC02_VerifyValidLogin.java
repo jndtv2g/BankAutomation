@@ -25,7 +25,7 @@ import org.apache.logging.slf4j.*;
 /**
  * 
  */
-public class VerifyLogin {
+public class TC02_VerifyValidLogin {
 
 	/**
 	 * @param args
@@ -51,7 +51,7 @@ public class VerifyLogin {
 		props.load(reader);
 		
 		// Initialize logger here
-		demologger = LogManager.getLogger(VerifyLogin.class);
+		//demologger = LogManager.getLogger(TC02_VerifyValidLogin.class);
 		
 		// Initialize ChromeOptions (script not running without this)
         options = new ChromeOptions();
@@ -70,7 +70,6 @@ public class VerifyLogin {
 		login = new Login(driver);
 		
 		// Navigate to the website
-		//driver.get(props.getProperty("searchTerm"));
 		login.navigateToSite();
 		function.delayPage();
 		
@@ -87,15 +86,15 @@ public class VerifyLogin {
 			
 		
 		// Login using existing email and password
-		login.setEmail(props.getProperty("email"));
+		login.setEmail(props.getProperty("validEmail"));
 		function.delayStep();
-		login.setPassword(props.getProperty("password"));
+		login.setPassword(props.getProperty("validPassword"));
 		function.delayStep();
 		login.clickLoginButton();
 		function.delayPage();
 
 		// Close window
-		driver.close();
+		//driver.close();
 		
 		
 	}

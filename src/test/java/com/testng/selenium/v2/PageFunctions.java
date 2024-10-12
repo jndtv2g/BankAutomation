@@ -34,7 +34,7 @@ public class PageFunctions {
     
     // Test method for delaying test steps
     public void delayStep() throws InterruptedException {
-    	Thread.sleep(5000);
+    	Thread.sleep(3000);
     }
     
  

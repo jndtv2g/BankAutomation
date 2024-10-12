@@ -31,7 +31,7 @@ public class Login {
 	By password = By.name("password");
     By login = By.linkText("Signup / Login");
     By loginBtn = By.xpath("//button[contains(text(),'Login')]");
-    //errMsg = driver.findElement(By.xpath("//*[text()='Your email or password is incorrect!']"));
+    By errMsg = By.xpath("//*[text()='Your email or password is incorrect!']");
     Properties props1=new Properties();
     Logger demologger1;
     
@@ -80,6 +80,14 @@ public class Login {
     public void clickLoginButton() {
     	driver.findElement(loginBtn).click();
     	demologger1.info("Login button clicked successfully");
+    	
+    	if (driver.findElement(errMsg).isDisplayed()) {
+    		demologger1.error("Invalid credentials entered");
+    	}
+    	else {
+    		demologger1.info("Valid credentials entered");
+    	}
+    		
     }
  
 }
