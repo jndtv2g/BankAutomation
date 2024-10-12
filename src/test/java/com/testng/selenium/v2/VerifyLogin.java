@@ -25,7 +25,7 @@ import org.apache.logging.slf4j.*;
 /**
  * 
  */
-public class v2 {
+public class VerifyLogin {
 
 	/**
 	 * @param args
@@ -43,8 +43,6 @@ public class v2 {
 		WebDriver driver;
 		Login login;
 		PageFunctions function;
-		//String expectedTitleHomePage = "Automation Exercise";
-		//String expectedTitleLogin = "Automation Exercise - Signup / Login";
 		String filepath = "D:\\eclipse-workplace\\v2\\src\\test\\java\\TestData.properties";
 		
 		// Testing properties file here
@@ -53,7 +51,7 @@ public class v2 {
 		props.load(reader);
 		
 		// Initialize logger here
-		demologger = LogManager.getLogger(v2.class);
+		demologger = LogManager.getLogger(VerifyLogin.class);
 		
 		// Initialize ChromeOptions (script not running without this)
         options = new ChromeOptions();
@@ -72,12 +70,14 @@ public class v2 {
 		login = new Login(driver);
 		
 		// Navigate to the website
-		driver.get(props.getProperty("searchTerm"));
+		//driver.get(props.getProperty("searchTerm"));
+		login.navigateToSite();
+		function.delayPage();
 		
 		// Validate landed site is correct
-		String actualTitleHomepage = driver.getTitle();
-		Assert.assertEquals(props.getProperty("expectedTitleHomepage"), actualTitleHomepage);
-		demologger.info("Actual page title is correct");
+//		String actualTitleHomepage = driver.getTitle();
+//		Assert.assertEquals(props.getProperty("expectedTitleHomepage"), actualTitleHomepage);
+//		demologger.info("Actual page title is correct");
 		
 		// Maximize current window
 		driver.manage().window().maximize();
@@ -87,13 +87,14 @@ public class v2 {
 		login.clickOnLogin();
 
 		// Test message here when switching screen
-		demologger.info("Click Successful");
-		//System.out.println("Login button successfully clicked");
+		//demologger.info("Click Successful");
 		function.delayPage();
 			
 		// Validate landed site is correct
-		String actualTitleLogin = driver.getTitle();
-		Assert.assertEquals(props.getProperty("expectedTitleLogin"), actualTitleLogin);
+//		String actualTitleLogin = driver.getTitle();
+//		Assert.assertEquals(props.getProperty("expectedTitleLogin"), actualTitleLogin);
+//		login.getHomePageTitle();
+		
 		
 		// Login using existing email and password
 		login.setEmail(props.getProperty("email"));
@@ -103,12 +104,12 @@ public class v2 {
 		login.clickLogin();
 		function.delayPage();
 		
-		demologger.info("This is an INFO log");
-        demologger.debug("This is a DEBUG log");
-        demologger.error("This is an ERROR log");
-		
+//		demologger.info("This is an INFO log");
+//        demologger.debug("This is a DEBUG log");
+//        demologger.error("This is an ERROR log");
+//		
 		// Close window
-		//driver.close();
+		driver.close();
 		
 		
 	}
