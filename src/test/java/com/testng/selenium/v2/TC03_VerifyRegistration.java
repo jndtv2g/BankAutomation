@@ -25,7 +25,7 @@ import org.apache.logging.slf4j.*;
 /**
  * 
  */
-public class TC02_VerifyValidLogin {
+public class TC03_VerifyRegistration {
 
 	/**
 	 * @param args
@@ -42,6 +42,7 @@ public class TC02_VerifyValidLogin {
 		ChromeOptions options;
 		WebDriver driver;
 		Login login;
+		Register register;
 		PageFunctions function;
 		String filepath = "D:\\eclipse-workplace\\v2\\src\\test\\java\\TestData.properties";
 		
@@ -51,7 +52,7 @@ public class TC02_VerifyValidLogin {
 		props.load(reader);
 		
 		// Initialize logger here
-		demologger = LogManager.getLogger(TC02_VerifyValidLogin.class);
+		demologger = LogManager.getLogger(TC03_VerifyRegistration.class);
 		
 		// Initialize ChromeOptions (script not running without this)
         options = new ChromeOptions();
@@ -67,32 +68,57 @@ public class TC02_VerifyValidLogin {
 		driver = new ChromeDriver(options);
 		
 		// Initialize Login script class here
-		login = new Login(driver);
+		register = new Register(driver);
 		
 		// Navigate to the website
-		login.navigateToSite();
-		function.delayPage();
-		
+		register.navigateToSite();
 
 		// Maximize current window
 		driver.manage().window().maximize();
-		function.delayPage();
 		
 		// Click on Login button on page
-		login.clickOnLogin();
+		register.clickOnLogin();
 
-		// Test message here when switching screen
-		function.delayPage();
-			
+		// Enter full name and email to initiate registration here
+		register.setSignupFullName();
 		
-		// Login using existing email and password
-		login.setEmail(props.getProperty("validEmail"));
-		function.delayStep();
-		login.setPassword(props.getProperty("validPassword"));
-		function.delayStep();
-		login.clickLoginButton();
-		function.delayPage();
-
+		register.setSignupEmail();
+		
+		register.clickSignupBtn();
+		
+		// Perform registration steps here
+		register.setGender();
+		
+		register.setPassword();
+		
+		register.setBirthDate();
+		
+		register.setBirthMonth();
+		
+		register.setBirthYear();
+		
+		register.setFirstName();
+		
+		register.setLastName();
+		
+		register.setCompany();
+		
+		register.setAddressLine1();
+		
+		register.setAddressLine2();
+		
+		register.setCountry();
+		
+		register.setState();
+		
+		register.setCity();
+		
+		register.setZipcode();
+		
+		register.setMobileNumber();
+		
+		register.clickCreateAccBtn();
+		
 		// Close window
 		//driver.close();
 		
