@@ -26,7 +26,7 @@ import org.apache.logging.slf4j.*;
  * 
  */
 public class TC03_VerifyRegistration {
-
+@BeforeTest
 	/**
 	 * @param args
 	 * @throws IOException 
@@ -120,7 +120,7 @@ public class TC03_VerifyRegistration {
 		register.clickCreateAccBtn();
 		
 		// Close window
-		//driver.close();
+		driver.close();
 		
 		
 	}

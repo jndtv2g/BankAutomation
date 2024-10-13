@@ -60,7 +60,6 @@ public class Register extends PageFunctions {
     By createAccountBtn = By.cssSelector("button[data-qa='create-account']");
     Properties props1=new Properties();
     Logger demologger1;
-    
     PageFunctions function1;
     
     

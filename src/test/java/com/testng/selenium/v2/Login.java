@@ -24,16 +24,19 @@ import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
 
 
-public class Login {
+public class Login extends PageFunctions {
 	
     WebDriver driver;
-	By email = By.name("email");
-	By password = By.name("password");
-    By login = By.linkText("Signup / Login");
-    By loginBtn = By.xpath("//button[contains(text(),'Login')]");
+	By email = By.cssSelector("input[data-qa='login-email'");
+	By password = By.cssSelector("input[data-qa='login-password'");
+	By login = By.linkText("Signup / Login");
+	By loginBtn = By.cssSelector("button[data-qa='login-button'");
+//    By loginBtn = By.xpath("//button[contains(text(),'Login')]");
     By errMsg = By.xpath("//*[text()='Your email or password is incorrect!']");
+    By logout = By.linkText("Logout");
     Properties props1=new Properties();
     Logger demologger1;
+    PageFunctions function;
     
     
     // Initialize properties file here for LoginAssertElements.properties
@@ -44,40 +47,59 @@ public class Login {
     	String filepath1 = "D:\\eclipse-workplace\\v2\\src\\test\\java\\LoginAssertElements.properties";
     	FileReader reader1=new FileReader(filepath1);
     	props1.load(reader1);
+    	function = new PageFunctions();
     }
     
 
     
-    public void navigateToSite() {
+    public void navigateToSite() throws InterruptedException {
     	driver.get(props1.getProperty("searchTerm"));
     	String actualTitleHomepage = driver.getTitle();
     	Assert.assertEquals(props1.getProperty("expectedTitleHomepage"), actualTitleHomepage);
     	demologger1.info("Actual page title is correct");
+    	function.delayPage();
     }
    
     // Navigate to login screen
-    public void clickOnLogin() {
+    public void clickOnLogin() throws InterruptedException {
     	driver.findElement(login).click();
     	demologger1.info("Signup / Login link clicked successfully");
     	String actualTitleLogin = driver.getTitle();
 		Assert.assertEquals(props1.getProperty("expectedTitleLogin"), actualTitleLogin);
     	demologger1.info("Actual page title is correct");
+    	function.delayStep();
     }
     
-    // Set email in field
-	public void setEmail(String strEmail) {
-        driver.findElement(email).sendKeys(strEmail);
+    // Set valid email in field
+	public void setValidEmail() throws InterruptedException {
+        driver.findElement(email).sendKeys(props1.getProperty("validEmail"));
         demologger1.info("Email field populated");
+        function.delayStep();
     }
     
-    // Set password in field
-    public void setPassword(String strPassword) {
-    	driver.findElement(password).sendKeys(strPassword);
+    // Set valid password in field
+    public void setValidPassword() throws InterruptedException {
+    	driver.findElement(password).sendKeys(props1.getProperty("validPassword"));
     	demologger1.info("Password field populated");
+    	function.delayStep();
+    }
+    
+    // Set invalid email in field
+    public void setInvalidEmail() throws InterruptedException {
+    	driver.findElement(email).sendKeys(props1.getProperty("invalidEmail"));
+    	demologger1.info("Email field populated");
+    	function.delayStep();
+    }
+    
+    // Set invalid password in field
+    public void setInvalidPassword() throws InterruptedException {
+    	driver.findElement(password).sendKeys(props1.getProperty("invalidPassword"));
+    	demologger1.info("Password field populated");
+    	function.delayStep();
     }
     
     // Click on Login button once fields are populated
-    public void clickLoginButton() {
+    public void clickLoginButton() throws InterruptedException {
     	driver.findElement(loginBtn).click();
     	demologger1.info("Login button clicked successfully");
     	
@@ -86,8 +108,16 @@ public class Login {
     	}
     	else {
     		demologger1.info("Valid credentials entered");
+    		function.delayPage();
     	}
-    		
+    	
+    }
+    
+    // Click on Logout button
+    public void clickLogoutButton() throws InterruptedException {
+    	driver.findElement(logout).click();
+    	demologger1.info("Logout button clicked");
+    	function.delayPage();
     }
  
 }

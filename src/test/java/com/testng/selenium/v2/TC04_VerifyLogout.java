@@ -18,14 +18,14 @@ import org.testng.Assert;
 import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
-import org.apache.logging.log4j.*;
+//import org.apache.logging.log4j.*;
 import org.apache.logging.log4j.Logger;
 import org.apache.logging.slf4j.*;
 
 /**
  * 
  */
-public class TC02_VerifyValidLogin {
+public class TC04_VerifyLogout {
 @BeforeTest
 	/**
 	 * @param args
@@ -45,13 +45,10 @@ public class TC02_VerifyValidLogin {
 		PageFunctions function;
 		String filepath = "D:\\eclipse-workplace\\v2\\src\\test\\java\\TestData.properties";
 		
-		// Initialize properties file here for TestData.properties
-		Properties props=new Properties();
-		FileReader reader=new FileReader(filepath);
-		props.load(reader);
-		
-		// Initialize logger here
-		demologger = LogManager.getLogger(TC02_VerifyValidLogin.class);
+//		// Initialize properties file here for TestData.properties
+//		Properties props=new Properties();
+//		FileReader reader=new FileReader(filepath);
+//		props.load(reader);
 		
 		// Initialize ChromeOptions (script not running without this)
         options = new ChromeOptions();
@@ -71,25 +68,22 @@ public class TC02_VerifyValidLogin {
 		
 		// Navigate to the website
 		login.navigateToSite();
-		function.delayPage();
-		
 
 		// Maximize current window
 		driver.manage().window().maximize();
-		function.delayPage();
 		
 		// Click on Login button on page
 		login.clickOnLogin();
-
-		// Test message here when switching screen
-		function.delayPage();
-			
 		
-		// Login using existing email and password
+		// Enter credentials on page
 		login.setValidEmail();
 		login.setValidPassword();
 		login.clickLoginButton();
-
+		
+		// Click on Logout button on page
+		login.clickLogoutButton();
+		
+		
 		// Close window
 		driver.close();
 		

@@ -26,7 +26,7 @@ import org.apache.logging.slf4j.*;
  * 
  */
 public class TC01_VerifyInvalidLogin {
-
+@BeforeTest
 	/**
 	 * @param args
 	 * @throws IOException 
@@ -76,22 +76,14 @@ public class TC01_VerifyInvalidLogin {
 
 		// Maximize current window
 		driver.manage().window().maximize();
-		function.delayPage();
 		
 		// Click on Login button on page
 		login.clickOnLogin();
-
-		// Test message here when switching screen
-		function.delayPage();
-			
 		
 		// Login using existing email and password
-		login.setEmail(props.getProperty("email"));
-		function.delayStep();
-		login.setPassword(props.getProperty("password"));
-		function.delayStep();
+		login.setInvalidEmail();
+		login.setInvalidPassword();
 		login.clickLoginButton();
-		function.delayPage();
 
 		// Close window
 		driver.close();
