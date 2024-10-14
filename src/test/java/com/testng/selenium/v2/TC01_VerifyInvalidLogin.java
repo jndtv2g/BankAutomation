@@ -81,7 +81,7 @@ public class TC01_VerifyInvalidLogin {
 		// Login using existing email and password
 		login.setInvalidEmail();
 		login.setInvalidPassword();
-		login.clickLoginButton();
+		login.clickInvalidLoginButton();
 
 		// Close window
 		driver.close();

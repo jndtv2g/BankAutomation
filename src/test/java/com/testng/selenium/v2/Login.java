@@ -99,7 +99,7 @@ public class Login extends PageFunctions {
     }
     
     // Click on Login button once fields are populated
-    public void clickLoginButton() throws InterruptedException {
+    public void clickInvalidLoginButton() throws InterruptedException {
     	driver.findElement(loginBtn).click();
     	demologger1.info("Login button clicked successfully");
     	
@@ -108,9 +108,16 @@ public class Login extends PageFunctions {
     	}
     	else {
     		demologger1.info("Valid credentials entered");
-    		function.delayPage();
     	}
-    	
+    	function.delayPage();
+    }
+    
+    // Click on Login button once fields are populated
+    public void clickValidLoginButton() throws InterruptedException {
+    	driver.findElement(loginBtn).click();
+    	demologger1.info("Login button clicked successfully");
+		demologger1.info("Valid credentials entered");
+    	function.delayPage();
     }
     
     // Click on Logout button

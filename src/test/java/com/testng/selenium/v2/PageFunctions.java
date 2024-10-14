@@ -20,7 +20,6 @@ import org.testng.annotations.Test;
  */
 public class PageFunctions {
 	
-	
 	// Set property here
 	public void setPropertyPath() {
 		System.setProperty("webdriver.chrome.driver", "D:\\chromedriver_win32\\chromedriver.exe");
@@ -37,5 +36,4 @@ public class PageFunctions {
     	Thread.sleep(3000);
     }
     
- 
 }

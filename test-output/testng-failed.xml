@@ -4,24 +4,6 @@
   <listeners>
     <listener class-name="org.testng.reporters.XMLReporter"/>
   </listeners>
-  <test thread-count="5" name="Test2(failed)">
-    <classes>
-      <class name="com.testng.selenium.v2.TC02_VerifyValidLogin">
-        <methods>
-          <include name="VerifyValidLogin"/>
-        </methods>
-      </class> <!-- com.testng.selenium.v2.TC02_VerifyValidLogin -->
-    </classes>
-  </test> <!-- Test2(failed) -->
-  <test thread-count="5" name="Test3(failed)">
-    <classes>
-      <class name="com.testng.selenium.v2.TC04_VerifyLogout">
-        <methods>
-          <include name="VerifyLogout"/>
-        </methods>
-      </class> <!-- com.testng.selenium.v2.TC04_VerifyLogout -->
-    </classes>
-  </test> <!-- Test3(failed) -->
   <test thread-count="5" name="Test4(failed)">
     <classes>
       <class name="com.testng.selenium.v2.TC03_VerifyRegistration">

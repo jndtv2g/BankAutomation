@@ -20,20 +20,19 @@ import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
 import org.apache.logging.log4j.*;
 import org.apache.logging.log4j.Logger;
-import org.apache.logging.slf4j.*;
+//import org.apache.logging.slf4j.*;
 
 /**
  * 
  */
+@Test
 public class TC04_VerifyLogout {
-@BeforeTest
+
 	/**
 	 * @param args
 	 * @throws IOException 
 	 */
 
-	
-	@Test
 	public void VerifyLogout() throws InterruptedException, IOException { 
 		// TODO Auto-generated method stub
 		
@@ -78,7 +77,7 @@ public class TC04_VerifyLogout {
 		// Enter credentials on page
 		login.setValidEmail();
 		login.setValidPassword();
-		login.clickLoginButton();
+		login.clickValidLoginButton();
 		
 		// Click on Logout button on page
 		login.clickLogoutButton();

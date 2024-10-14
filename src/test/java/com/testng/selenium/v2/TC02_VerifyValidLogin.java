@@ -20,20 +20,20 @@ import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
 import org.apache.logging.log4j.*;
 import org.apache.logging.log4j.Logger;
-import org.apache.logging.slf4j.*;
+//import org.apache.logging.slf4j.*;
 
 /**
  * 
  */
+@Test
 public class TC02_VerifyValidLogin {
-@BeforeTest
+
 	/**
 	 * @param args
 	 * @throws IOException 
 	 */
 
-	
-	@Test
+
 	public  void VerifyValidLogin() throws InterruptedException, IOException { 
 		// TODO Auto-generated method stub
 		
@@ -88,7 +88,7 @@ public class TC02_VerifyValidLogin {
 		// Login using existing email and password
 		login.setValidEmail();
 		login.setValidPassword();
-		login.clickLoginButton();
+		login.clickValidLoginButton();
 
 		// Close window
 		driver.close();
