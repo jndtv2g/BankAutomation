@@ -34,7 +34,7 @@ public class TC03_VerifyRegistration {
 
 	
 	@Test
-	public static void main(String[] args) throws InterruptedException, IOException { 
+	public void VerifyRegistration() throws InterruptedException, IOException { 
 		// TODO Auto-generated method stub
 		
 		// Variables here

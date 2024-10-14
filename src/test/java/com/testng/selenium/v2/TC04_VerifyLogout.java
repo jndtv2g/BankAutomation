@@ -34,7 +34,7 @@ public class TC04_VerifyLogout {
 
 	
 	@Test
-	public static void main(String[] args) throws InterruptedException, IOException { 
+	public void VerifyLogout() throws InterruptedException, IOException { 
 		// TODO Auto-generated method stub
 		
 		// Variables here

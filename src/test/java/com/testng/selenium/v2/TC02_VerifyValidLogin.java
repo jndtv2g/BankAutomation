@@ -34,7 +34,7 @@ public class TC02_VerifyValidLogin {
 
 	
 	@Test
-	public static void main(String[] args) throws InterruptedException, IOException { 
+	public  void VerifyValidLogin() throws InterruptedException, IOException { 
 		// TODO Auto-generated method stub
 		
 		// Variables here

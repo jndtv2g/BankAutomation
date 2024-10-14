@@ -25,16 +25,14 @@ import org.apache.logging.log4j.Logger;
 /**
  * 
  */
+@Test
 public class TC01_VerifyInvalidLogin {
-@BeforeTest
 	/**
 	 * @param args
 	 * @throws IOException 
 	 */
 
-	
-	@Test
-	public static void main(String[] args) throws InterruptedException, IOException { 
+	public void VerifyInvalidLogin() throws InterruptedException, IOException { 
 		// TODO Auto-generated method stub
 		
 		// Variables here
