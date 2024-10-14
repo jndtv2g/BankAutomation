@@ -1,0 +1,7 @@
+com\testng\selenium\v2\TC03_VerifyRegistration.class
+com\testng\selenium\v2\Register.class
+com\testng\selenium\v2\TC02_VerifyValidLogin.class
+com\testng\selenium\v2\TC04_VerifyLogout.class
+com\testng\selenium\v2\Login.class
+com\testng\selenium\v2\TC01_VerifyInvalidLogin.class
+com\testng\selenium\v2\PageFunctions.class

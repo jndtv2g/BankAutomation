@@ -18,7 +18,7 @@ import org.testng.Assert;
 import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
-//import org.apache.logging.log4j.*;
+import org.apache.logging.log4j.*;
 import org.apache.logging.log4j.Logger;
 import org.apache.logging.slf4j.*;
 
