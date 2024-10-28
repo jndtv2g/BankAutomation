@@ -17,6 +17,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
+import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.Select;
 import org.testng.Assert;
 import org.testng.annotations.AfterTest;
@@ -27,14 +28,18 @@ import org.testng.annotations.Test;
 public class ProductListingPage extends PageFunctions {
 	
     WebDriver driver;
+    WebElement overlay;
 //    By products = By.linkText("Products");
     By products = By.xpath("//a[contains(., 'Products')]");
     By loginBtn = By.xpath("//button[contains(text(),'Login')]");
-    By product1 = By.cssSelector("input[data-product-id='1'");
+//    By productOverlay1 = By.cssSelector("a[src='/get_product_picture/2']");
+    By productOverlay1 = By.xpath("//img[@src='/get_product_picture/2']");
+    By product1 = By.cssSelector("input[data-product-id='2'");
     By emptyCartMsg = By.xpath("//*[text()='Cart is empty!']");
     Properties props1=new Properties();
     Logger demologger1;
     PageFunctions function1;
+    Actions action;
     
     
     
@@ -47,6 +52,7 @@ public class ProductListingPage extends PageFunctions {
     	FileReader reader1=new FileReader(filepath1);
     	props1.load(reader1);
     	function1 = new PageFunctions();
+    	action = new Actions(driver);
     }
     
     
@@ -68,6 +74,10 @@ public class ProductListingPage extends PageFunctions {
     
     // Add a product to cart
     public void addProductToCart() throws InterruptedException{
+    	overlay = driver.findElement(productOverlay1);
+    	action.moveToElement(overlay).perform();
+    	function1.delayStep();
+    	function1.delayStep();
     	driver.findElement(product1).click();
     	demologger1.info("Added a product to cart successfully");
     	function1.delayStep();

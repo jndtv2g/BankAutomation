@@ -95,6 +95,9 @@ public class TC05_AddToCart {
 		
 		// Go to product listing page
 		plp.goToProductListingPage();
+		
+		// Add a product to cart
+		plp.addProductToCart();
 
 		// Close window
 //		driver.close();
