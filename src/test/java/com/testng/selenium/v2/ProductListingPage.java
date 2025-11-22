@@ -29,10 +29,10 @@ public class ProductListingPage extends PageFunctions {
 	
     WebDriver driver;
     WebElement overlay;
-//    By products = By.linkText("Products");
+    // By products = By.linkText("Products");
     By products = By.xpath("//a[contains(., 'Products')]");
     By loginBtn = By.xpath("//button[contains(text(),'Login')]");
-//    By productOverlay1 = By.cssSelector("a[src='/get_product_picture/2']");
+    // By productOverlay1 = By.cssSelector("a[src='/get_product_picture/2']");
     By productOverlay1 = By.xpath("//img[@src='/get_product_picture/2']");
     By product1 = By.cssSelector("input[data-product-id='2'");
     By emptyCartMsg = By.xpath("//*[text()='Cart is empty!']");
@@ -40,7 +40,6 @@ public class ProductListingPage extends PageFunctions {
     Logger demologger1;
     PageFunctions function1;
     Actions action;
-    
     
     
     // Initialize properties file here for LoginAssertElements.properties

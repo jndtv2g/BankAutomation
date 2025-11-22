@@ -3,11 +3,11 @@
 <suite name="Failed suite [Default suite]" guice-stage="DEVELOPMENT">
   <test thread-count="5" name="Default test(failed)">
     <classes>
-      <class name="com.testng.selenium.v2.TC05_AddToCart">
+      <class name="com.testng.selenium.v2.TC01_VerifyInvalidLogin">
         <methods>
-          <include name="VerifyAddToCart"/>
+          <include name="VerifyInvalidLogin"/>
         </methods>
-      </class> <!-- com.testng.selenium.v2.TC05_AddToCart -->
+      </class> <!-- com.testng.selenium.v2.TC01_VerifyInvalidLogin -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->
