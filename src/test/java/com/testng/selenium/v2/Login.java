@@ -27,11 +27,10 @@ import org.testng.annotations.Test;
 public class Login extends PageFunctions {
 	
     WebDriver driver;
-	By email = By.cssSelector("input[data-qa='login-email'");
-	By password = By.cssSelector("input[data-qa='login-password'");
-	By login = By.linkText("Signup / Login");
-	By loginBtn = By.cssSelector("button[data-qa='login-button'");
-//    By loginBtn = By.xpath("//button[contains(text(),'Login')]");
+	By email = By.name("username");
+	By password = By.name("password");
+	// By loginBtn = By.linkText("Log In");
+	By loginBtn = By.xpath("//button[contains(text(),'Log In')]");
     By errMsg = By.xpath("//*[text()='Your email or password is incorrect!']");
     By logout = By.linkText("Logout");
     Properties props1=new Properties();
@@ -44,7 +43,7 @@ public class Login extends PageFunctions {
     public Login(WebDriver driver) throws InterruptedException, IOException {
     	this.driver = driver;
     	demologger1 = LogManager.getLogger(Login.class);
-    	String filepath1 = "D:\\eclipse-workplace\\v2\\src\\test\\java\\LoginAssertElements.properties";
+    	String filepath1 = "D:\\eclipse-workplace\\v5\\src\\test\\java\\LoginAssertElements.properties";
     	FileReader reader1=new FileReader(filepath1);
     	props1.load(reader1);
     	function = new PageFunctions();
@@ -61,14 +60,15 @@ public class Login extends PageFunctions {
     }
    
     // Navigate to login screen
-    public void clickOnLogin() throws InterruptedException {
-    	driver.findElement(login).click();
-    	demologger1.info("Signup / Login link clicked successfully");
-    	String actualTitleLogin = driver.getTitle();
-		Assert.assertEquals(props1.getProperty("expectedTitleLogin"), actualTitleLogin);
-    	demologger1.info("Actual page title is correct");
-    	function.delayStep();
-    }
+	/*
+	 * public void clickOnLogin() throws InterruptedException {
+	 * driver.findElement(login).click();
+	 * demologger1.info("Signup / Login link clicked successfully"); String
+	 * actualTitleLogin = driver.getTitle();
+	 * Assert.assertEquals(props1.getProperty("expectedTitleLogin"),
+	 * actualTitleLogin); demologger1.info("Actual page title is correct");
+	 * function.delayStep(); }
+	 */
     
     // Set valid email in field
 	public void setValidEmail() throws InterruptedException {

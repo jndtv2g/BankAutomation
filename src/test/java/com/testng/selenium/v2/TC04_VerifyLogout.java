@@ -71,8 +71,9 @@ public class TC04_VerifyLogout {
 		// Maximize current window
 		driver.manage().window().maximize();
 		
-		// Click on Login button on page
-		login.clickOnLogin();
+		/*
+		 * // Click on Login button on page login.clickOnLogin();
+		 */
 		
 		// Enter credentials on page
 		login.setValidEmail();

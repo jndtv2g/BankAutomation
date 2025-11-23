@@ -41,7 +41,7 @@ public class TC01_VerifyInvalidLogin {
 		WebDriver driver;
 		Login login;
 		PageFunctions function;
-		String filepath = "D:\\eclipse-workplace\\v2\\src\\test\\java\\TestData.properties";
+		String filepath = "D:\\eclipse-workplace\\v5\\src\\test\\java\\TestData.properties";
 		
 		// Initialize properties file here for TestData.properties
 		Properties props=new Properties();
@@ -74,9 +74,6 @@ public class TC01_VerifyInvalidLogin {
 
 		// Maximize current window
 		driver.manage().window().maximize();
-		
-		// Click on Login button on page
-		login.clickOnLogin();
 		
 		// Login using existing email and password
 		login.setInvalidEmail();

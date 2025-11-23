@@ -82,8 +82,9 @@ public class TC05_AddToCart {
 		driver.manage().window().maximize();
 		function.delayPage();
 		
-		// Click on Login button on page
-		login.clickOnLogin();
+		/*
+		 * // Click on Login button on page login.clickOnLogin();
+		 */
 
 		// Test message here when switching screen
 		function.delayPage();
